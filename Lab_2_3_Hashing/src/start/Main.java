@@ -9,14 +9,14 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        HashTableChaining hashTableChaining = new HashTableChaining(150, 0.616545);
-        chainingDemonstration(hashTableChaining);
-
-        HashTableLinearProbing probingHashTable = new HashTableLinearProbing(74, 0.616545);
-        linearProbingDemonstration(probingHashTable);
-
-        HashTableDoubleHashing doubleHashingHashTable = new HashTableDoubleHashing(74, 0.616545);
-        doubleHashingDemonstration(doubleHashingHashTable);
+//        HashTableChaining hashTableChaining = new HashTableChaining(150, 0.616545);
+//        chainingDemonstration(hashTableChaining);
+//
+//        HashTableLinearProbing probingHashTable = new HashTableLinearProbing(74, 0.616545);
+//        linearProbingDemonstration(probingHashTable);
+//
+//        HashTableDoubleHashing doubleHashingHashTable = new HashTableDoubleHashing(74, 0.616545);
+//        doubleHashingDemonstration(doubleHashingHashTable);
 
         experiment();
     }

@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Stack;
 
 public class Graph {
-    int[][] adjacencyList;
-    List<Boolean> used;
-    List<List<Integer>> components;
+    private int[][] adjacencyList;
+    private List<Boolean> used;
+    private List<List<Integer>> components;
 
     public Graph(int[][] adjacencyList) {
         this.adjacencyList = adjacencyList;
@@ -19,29 +19,23 @@ public class Graph {
         this.components = new ArrayList<>();
     }
 
-    public void depthFirstSearch(int current) {
+    public void depthFirstSearchFindComponent(int current, List<Integer> currentComponent) {
         used.set(current, true);
+        currentComponent.add(current);
+
         for (int next : adjacencyList[current]) {
             if (!used.get(next)) {
-                depthFirstSearch(next);
+                depthFirstSearchFindComponent(next, currentComponent);
             }
         }
     }
 
-    public void findComponents() {
-        List<Integer> included = new ArrayList<>();
-        int numberOfComponents = 0;
+    public void determineComponents() {
         for (int i = 0; i < used.size(); i++) {
             if (!used.get(i)) {
-                components.add(new ArrayList<>());
-                ++numberOfComponents;
-                depthFirstSearch(i);
-            }
-            for (int j = 0; j < used.size(); j++) {
-                if (used.get(j) && !included.contains(j)) {
-                    components.get(numberOfComponents - 1).add(j);
-                    included.add(j);
-                }
+                List<Integer> currentComponent = new ArrayList<>();
+                depthFirstSearchFindComponent(i, currentComponent);
+                components.add(currentComponent);
             }
         }
     }
@@ -136,42 +130,43 @@ public class Graph {
         return graphCopy;
     }
 
-    public void depthFirstSearchColored(int current, List<Integer> colors) {
-        for (int next : adjacencyList[current]) {
-            if (colors.get(next) == 0) {
-                colors.set(next, 3 - colors.get(current));
-                depthFirstSearchColored(next, colors);
-            }
-            else if (colors.get(next).equals(colors.get(current))) {
-                colors.set(next, -1);
+    public void depthFirstSearchColored(int current, List<Integer> firstPart, List<Integer> secondPart,
+                                        boolean isFirstColor) {
+        used.set(current, true);
+        if (isFirstColor) {
+            firstPart.add(current);
+        }
+        else {
+            secondPart.add(current);
+        }
+
+        for (int vertex: adjacencyList[current]) {
+            if (!used.get(vertex)) {
+                depthFirstSearchColored(vertex, firstPart, secondPart, !isFirstColor);
             }
         }
     }
 
     public List<List<Integer>> findColors() {
-        List<Integer> colors = new ArrayList<>();
         List<Integer> firstPart = new ArrayList<>();
         List<Integer> secondPart = new ArrayList<>();
 
         for (int i = 0; i < getGraphSize(); i++) {
-            colors.add(0);
+            used.set(i, false);
         }
 
-        for (int i = 0; i < colors.size(); i++) {
-            if (colors.get(i) == 0) {
-                colors.set(i, 1);
-                depthFirstSearchColored(i, colors);
-            }
-            if (colors.get(i) == 1) {
-                firstPart.add(i);
-            }
-            if (colors.get(i) == 2) {
-                secondPart.add(i);
-            }
+        for (List<Integer> component: components) {
+            depthFirstSearchColored(component.get(0), firstPart, secondPart, true);
         }
 
-        if (colors.contains(-1)) {
+        if (firstPart.size() + secondPart.size() != getGraphSize()) {
             return null;
+        }
+
+        for (int vertex: firstPart) {
+            if (secondPart.contains(vertex)) {
+                return null;
+            }
         }
 
         List<List<Integer>> parts = new ArrayList<>();

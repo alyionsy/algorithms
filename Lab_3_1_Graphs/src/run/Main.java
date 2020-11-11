@@ -28,7 +28,7 @@ public class Main {
         graph.showAdjacencyList();
         System.out.println("-----");
 
-        graph.findComponents();
+        graph.determineComponents();
         System.out.println("number of components: " + graph.getNumberOfComponents() + "\ncomponents: ");
         graph.printComponents();
         System.out.println("-----");
