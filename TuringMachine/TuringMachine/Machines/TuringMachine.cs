@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TuringMachine.Machines
 {
@@ -20,6 +21,7 @@ namespace TuringMachine.Machines
                 state = nextStateInfo.nextState;
                 tape[indexOfCurrentSymbol] = nextStateInfo.newSymbol;
                 indexOfCurrentSymbol += nextStateInfo.shift;
+                /*Console.WriteLine(tape);*/
             }
 
             return tape;
