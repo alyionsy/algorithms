@@ -1,0 +1,16 @@
+C:\studying\algorithms\Packing\Packing\bin\Debug\net5.0\Packing.exe
+C:\studying\algorithms\Packing\Packing\bin\Debug\net5.0\Packing.deps.json
+C:\studying\algorithms\Packing\Packing\bin\Debug\net5.0\Packing.runtimeconfig.json
+C:\studying\algorithms\Packing\Packing\bin\Debug\net5.0\Packing.runtimeconfig.dev.json
+C:\studying\algorithms\Packing\Packing\bin\Debug\net5.0\Packing.dll
+C:\studying\algorithms\Packing\Packing\bin\Debug\net5.0\ref\Packing.dll
+C:\studying\algorithms\Packing\Packing\bin\Debug\net5.0\Packing.pdb
+C:\studying\algorithms\Packing\Packing\obj\Debug\net5.0\Packing.csprojAssemblyReference.cache
+C:\studying\algorithms\Packing\Packing\obj\Debug\net5.0\Packing.GeneratedMSBuildEditorConfig.editorconfig
+C:\studying\algorithms\Packing\Packing\obj\Debug\net5.0\Packing.AssemblyInfoInputs.cache
+C:\studying\algorithms\Packing\Packing\obj\Debug\net5.0\Packing.AssemblyInfo.cs
+C:\studying\algorithms\Packing\Packing\obj\Debug\net5.0\Packing.csproj.CoreCompileInputs.cache
+C:\studying\algorithms\Packing\Packing\obj\Debug\net5.0\Packing.dll
+C:\studying\algorithms\Packing\Packing\obj\Debug\net5.0\ref\Packing.dll
+C:\studying\algorithms\Packing\Packing\obj\Debug\net5.0\Packing.pdb
+C:\studying\algorithms\Packing\Packing\obj\Debug\net5.0\Packing.genruntimeconfig.cache
