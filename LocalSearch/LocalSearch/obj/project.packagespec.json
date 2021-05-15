@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\acer\\Documents\\GitHub\\algorithms\\GeneticAlgorithm\\GeneticAlgorithm\\GeneticAlgorithm.csproj",
-    "projectName": "GeneticAlgorithm",
-    "projectPath": "C:\\Users\\acer\\Documents\\GitHub\\algorithms\\GeneticAlgorithm\\GeneticAlgorithm\\GeneticAlgorithm.csproj",
-    "outputPath": "C:\\Users\\acer\\Documents\\GitHub\\algorithms\\GeneticAlgorithm\\GeneticAlgorithm\\obj\\",
+    "projectUniqueName": "C:\\studying\\algorithms\\LocalSearch\\LocalSearch\\LocalSearch.csproj",
+    "projectName": "LocalSearch",
+    "projectPath": "C:\\studying\\algorithms\\LocalSearch\\LocalSearch\\LocalSearch.csproj",
+    "outputPath": "C:\\studying\\algorithms\\LocalSearch\\LocalSearch\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

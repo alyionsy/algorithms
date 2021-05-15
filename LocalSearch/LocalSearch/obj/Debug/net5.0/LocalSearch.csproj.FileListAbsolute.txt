@@ -1,0 +1,16 @@
+C:\studying\algorithms\LocalSearch\LocalSearch\bin\Debug\net5.0\LocalSearch.exe
+C:\studying\algorithms\LocalSearch\LocalSearch\bin\Debug\net5.0\LocalSearch.deps.json
+C:\studying\algorithms\LocalSearch\LocalSearch\bin\Debug\net5.0\LocalSearch.runtimeconfig.json
+C:\studying\algorithms\LocalSearch\LocalSearch\bin\Debug\net5.0\LocalSearch.runtimeconfig.dev.json
+C:\studying\algorithms\LocalSearch\LocalSearch\bin\Debug\net5.0\LocalSearch.dll
+C:\studying\algorithms\LocalSearch\LocalSearch\bin\Debug\net5.0\ref\LocalSearch.dll
+C:\studying\algorithms\LocalSearch\LocalSearch\bin\Debug\net5.0\LocalSearch.pdb
+C:\studying\algorithms\LocalSearch\LocalSearch\obj\Debug\net5.0\LocalSearch.csprojAssemblyReference.cache
+C:\studying\algorithms\LocalSearch\LocalSearch\obj\Debug\net5.0\LocalSearch.GeneratedMSBuildEditorConfig.editorconfig
+C:\studying\algorithms\LocalSearch\LocalSearch\obj\Debug\net5.0\LocalSearch.AssemblyInfoInputs.cache
+C:\studying\algorithms\LocalSearch\LocalSearch\obj\Debug\net5.0\LocalSearch.AssemblyInfo.cs
+C:\studying\algorithms\LocalSearch\LocalSearch\obj\Debug\net5.0\LocalSearch.csproj.CoreCompileInputs.cache
+C:\studying\algorithms\LocalSearch\LocalSearch\obj\Debug\net5.0\LocalSearch.dll
+C:\studying\algorithms\LocalSearch\LocalSearch\obj\Debug\net5.0\ref\LocalSearch.dll
+C:\studying\algorithms\LocalSearch\LocalSearch\obj\Debug\net5.0\LocalSearch.pdb
+C:\studying\algorithms\LocalSearch\LocalSearch\obj\Debug\net5.0\LocalSearch.genruntimeconfig.cache

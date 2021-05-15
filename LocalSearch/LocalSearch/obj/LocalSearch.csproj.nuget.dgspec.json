@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\acer\\Documents\\GitHub\\algorithms\\GeneticAlgorithm\\GeneticAlgorithm\\GeneticAlgorithm.csproj": {}
+    "C:\\studying\\algorithms\\LocalSearch\\LocalSearch\\LocalSearch.csproj": {}
   },
   "projects": {
-    "C:\\Users\\acer\\Documents\\GitHub\\algorithms\\GeneticAlgorithm\\GeneticAlgorithm\\GeneticAlgorithm.csproj": {
+    "C:\\studying\\algorithms\\LocalSearch\\LocalSearch\\LocalSearch.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\acer\\Documents\\GitHub\\algorithms\\GeneticAlgorithm\\GeneticAlgorithm\\GeneticAlgorithm.csproj",
-        "projectName": "GeneticAlgorithm",
-        "projectPath": "C:\\Users\\acer\\Documents\\GitHub\\algorithms\\GeneticAlgorithm\\GeneticAlgorithm\\GeneticAlgorithm.csproj",
+        "projectUniqueName": "C:\\studying\\algorithms\\LocalSearch\\LocalSearch\\LocalSearch.csproj",
+        "projectName": "LocalSearch",
+        "projectPath": "C:\\studying\\algorithms\\LocalSearch\\LocalSearch\\LocalSearch.csproj",
         "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\acer\\Documents\\GitHub\\algorithms\\GeneticAlgorithm\\GeneticAlgorithm\\obj\\",
+        "outputPath": "C:\\studying\\algorithms\\LocalSearch\\LocalSearch\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

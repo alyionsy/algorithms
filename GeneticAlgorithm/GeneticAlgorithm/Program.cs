@@ -5,7 +5,7 @@ namespace GeneticAlgorithm
 {
     class Program
     {
-        private static EquationSolver.Equation _equation = Equation.EquationExtra;
+        private static EquationSolver.Equation _equation = Equation.EquationA;
         
         private const int PopulationSize = 3000;
         private const int MinValue = -200;
