@@ -22,13 +22,15 @@ namespace LocalSearch
             }
         }
 
-        public void Solve()
+        public List<int> Solve()
         {
             List<int> mainRoute = _vertices.OrderBy(Random.Next).ToList();    // randomizing initial route
             int minimalWeight = CalculateRouteWeight(mainRoute);
             
             Console.WriteLine($"\ninitial random route: {RouteToString(mainRoute)}");
             Console.WriteLine($"weight: {CalculateRouteWeight(mainRoute)}");
+
+            List<int> shortestRoute = new List<int>();
 
             for (int i = 0; i < mainRoute.Count - 2; i++)
             {
@@ -41,7 +43,7 @@ namespace LocalSearch
                     if (newWeight < minimalWeight)
                     {
                         minimalWeight = newWeight;
-                        mainRoute = possibleShortestRoute;
+                        shortestRoute = possibleShortestRoute;
                         
                         Console.WriteLine("\n=======");
                         Console.WriteLine($"shortest route: {RouteToString(possibleShortestRoute)}");
@@ -50,6 +52,7 @@ namespace LocalSearch
                 }
             }
 
+            return shortestRoute;
         }
 
         private List<int> SwapNodes(List<int> route, int index1, int index2)
@@ -77,7 +80,7 @@ namespace LocalSearch
             StringBuilder builder = new StringBuilder(" ");
             foreach (int vertex in route)
             {
-                builder.Append(vertex).Append(" - ");
+                builder.Append(vertex).Append("  ");
             }
 
             return builder.Append(route[0]).ToString();

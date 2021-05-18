@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\studying\\algorithms\\LocalSearch\\LocalSearch\\LocalSearch.csproj",
+      "projectUniqueName": "C:\\Users\\acer\\Documents\\GitHub\\algorithms\\LocalSearch\\LocalSearch\\LocalSearch.csproj",
       "projectName": "LocalSearch",
-      "projectPath": "C:\\studying\\algorithms\\LocalSearch\\LocalSearch\\LocalSearch.csproj",
+      "projectPath": "C:\\Users\\acer\\Documents\\GitHub\\algorithms\\LocalSearch\\LocalSearch\\LocalSearch.csproj",
       "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
-      "outputPath": "C:\\studying\\algorithms\\LocalSearch\\LocalSearch\\obj\\",
+      "outputPath": "C:\\Users\\acer\\Documents\\GitHub\\algorithms\\LocalSearch\\LocalSearch\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

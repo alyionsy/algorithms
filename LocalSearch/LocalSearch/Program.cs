@@ -16,7 +16,9 @@ namespace LocalSearch
             
             PrintMatrix(weightMatrix);
                 
-            solver.Solve();
+            List<int> shortestRoute = solver.Solve();
+            
+            Console.WriteLine($"the last route is the shortest one.");
         }
         
         private static List<List<int>> CreateWeightMatrix(int size, int maxValue)
