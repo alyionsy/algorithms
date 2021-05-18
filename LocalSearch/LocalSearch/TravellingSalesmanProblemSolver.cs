@@ -30,29 +30,37 @@ namespace LocalSearch
             Console.WriteLine($"\ninitial random route: {RouteToString(mainRoute)}");
             Console.WriteLine($"weight: {CalculateRouteWeight(mainRoute)}");
 
-            List<int> shortestRoute = new List<int>();
+            List<int> shortestRoute = new List<int>(mainRoute);
 
-            for (int i = 0; i < mainRoute.Count - 2; i++)
+            while (true)
             {
-                for (int j = i + 2; j < mainRoute.Count; j++)
+                for (int i = 0; i < mainRoute.Count - 2; i++)
                 {
-                    List<int> possibleShortestRoute = SwapNodes(mainRoute, i, j);
-                    
-                    int newWeight = CalculateRouteWeight(possibleShortestRoute);
-
-                    if (newWeight < minimalWeight)
+                    for (int j = i + 2; j < mainRoute.Count; j++)
                     {
-                        minimalWeight = newWeight;
-                        shortestRoute = possibleShortestRoute;
-                        
-                        Console.WriteLine("\n=======");
-                        Console.WriteLine($"shortest route: {RouteToString(possibleShortestRoute)}");
-                        Console.WriteLine($"weight: {minimalWeight}");
+                        List<int> possibleShortestRoute = SwapNodes(mainRoute, i, j);
+
+                        int newWeight = CalculateRouteWeight(possibleShortestRoute);
+
+                        if (newWeight < minimalWeight)
+                        {
+                            minimalWeight = newWeight;
+                            shortestRoute = possibleShortestRoute;
+
+                            Console.WriteLine("\n=======");
+                            Console.WriteLine($"shortest route: {RouteToString(possibleShortestRoute)}");
+                            Console.WriteLine($"weight: {minimalWeight}");
+                        }
                     }
                 }
-            }
 
-            return shortestRoute;
+                if (mainRoute == shortestRoute)
+                {
+                    return shortestRoute;
+                }
+                
+                mainRoute = shortestRoute;
+            }
         }
 
         private List<int> SwapNodes(List<int> route, int index1, int index2)
