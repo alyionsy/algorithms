@@ -13,14 +13,11 @@ namespace GeneticAlgorithm
         private readonly Equation _equation;
 
         private readonly int _populationSize;
-        
         private readonly int _minValue;
         private readonly int _maxValue;
-        
         private readonly int _tournamentGroupAmount;
         private readonly int _childrenAmount;
         private readonly int _mutantsAmount;
-        
         private readonly double _mutationPossibility;
         private readonly double _substitutionPossibility;
 
@@ -41,6 +38,16 @@ namespace GeneticAlgorithm
             
             CreatePopulation();
         }
+        
+        private void CreatePopulation()
+        {
+            _population = new List<ChromosomeVector>();
+            for (var i = 0; i < _populationSize; i++)
+            {
+                _population.Add(new ChromosomeVector(Random.Next(_minValue, _maxValue), Random.Next(_minValue, _maxValue), 
+                    Random.Next(_minValue, _maxValue), Random.Next(_minValue, _maxValue), Random.Next(_minValue, _maxValue)));
+            }
+        }
 
         public ChromosomeVector Solve()
         {
@@ -55,8 +62,7 @@ namespace GeneticAlgorithm
 
                 double averageDeviation = CalculateAverageDeviation(children);
                 
-                Console.WriteLine("----------");
-                Console.WriteLine($"generation {generation}: ");
+                Console.WriteLine($"\ngeneration {generation}: ");
                 Console.WriteLine($"closest solution vector: {children[0]}");
                 Console.WriteLine($"distance: {_equation(children[0])}");
                 Console.WriteLine($"average deviation of the generation: {averageDeviation}");
@@ -107,7 +113,9 @@ namespace GeneticAlgorithm
         
         private ChromosomeVector ProportionalCrossover(ChromosomeVector parentA, ChromosomeVector parentB)
         {
-            double probabilityA = (double) _equation(parentA) / (_equation(parentB) + _equation(parentA));
+            double fitnessA = Math.Abs(1 / _equation(parentA));
+            double fitnessB = Math.Abs(1 / _equation(parentB));
+            double probabilityA = fitnessA / (fitnessA + fitnessB);
             double probabilityB = 1 - probabilityA;
 
             ChromosomeVector child = new ChromosomeVector();
@@ -118,16 +126,16 @@ namespace GeneticAlgorithm
                 {
                     if (probability < probabilityB)
                     {
-                        child[i] = probabilityA >= probabilityB ? parentA[0] : parentB[0];
+                        child[i] = probabilityA >= probabilityB ? parentA[i] : parentB[i];
                     }
                     else
                     {
-                        child[i] = parentA[0];
+                        child[i] = parentA[i];
                     }
                 }
                 else
                 {
-                    child[i] = parentB[0];
+                    child[i] = parentB[i];
                 }
             }
             return child;
@@ -153,27 +161,30 @@ namespace GeneticAlgorithm
 
         private void Substitution(List<ChromosomeVector> children)
         {
-            var chances = GenerateChances(children);
+            var possibilities = GeneratePossibilities(children);
             foreach (var value in _population)
             {
-                if (Random.NextDouble() > _substitutionPossibility) continue;
-                    
-                var random = Random.NextDouble();
-                var index = 0;
-                for (var j = 0; j < chances.Count; j++)
+                if (Random.NextDouble() <= _substitutionPossibility)
                 {
-                    if (!(random < chances[j])) continue;
-                    index = j;
-                    break;
+                    var random = Random.NextDouble();
+                    var index = 0;
+                    for (var j = 0; j < possibilities.Count; j++)
+                    {
+                        if (random < possibilities[j])
+                        {
+                            index = j;
+                            break;
+                        }
+                    }
+
+                    value.Copy(children[index]);
+                    children.RemoveAt(index);
+                    possibilities.RemoveAt(index);
                 }
-                
-                value.Copy(children[index]);
-                children.RemoveAt(index);
-                chances.RemoveAt(index);
             }
         }
         
-        private List<double> GenerateChances(List<ChromosomeVector> solutions)
+        private List<double> GeneratePossibilities(List<ChromosomeVector> solutions)
         {
             var possibilities = new List<double>();
             
@@ -183,15 +194,14 @@ namespace GeneticAlgorithm
             
             foreach (var solution in solutions)
             {
-                var fitness = _equation(solution) == 0 ? 1 : _equation(solution);
+                var fitness = _equation(solution) == 0 ? 1 : Math.Abs(1 / _equation(solution));
                 fitnessSum += fitness;
                 fitnessOfSolution.Add(fitness);
             }
             
             for (var i = 0; i < solutions.Count; i++)
             {
-                var fitness = fitnessOfSolution[i];
-                var possibility = fitness / fitnessSum;
+                var possibility = fitnessOfSolution[i] / fitnessSum;
                 possibilities.Add(possibility);
             }
 
@@ -200,29 +210,13 @@ namespace GeneticAlgorithm
 
         private double CalculateAverageDeviation(List<ChromosomeVector> solutions)
         {
-            var deviation = 0;
+            double deviation = 0.0d;
             foreach (var solution in solutions)
             {
-                deviation += _equation(solution);
+                deviation += Math.Abs(_equation(solution));
             }
-            
-            return (double) deviation / solutions.Count;
-        }
 
-
-        private void CreatePopulation()
-        {
-            _population = new List<ChromosomeVector>();
-            for (var i = 0; i < _populationSize; i++)
-            {
-                _population.Add(GenerateChromosome());
-            }
-        }
-        
-        private ChromosomeVector GenerateChromosome()
-        {
-            return new ChromosomeVector(Random.Next(_minValue, _maxValue), Random.Next(_minValue, _maxValue), 
-                Random.Next(_minValue, _maxValue), Random.Next(_minValue, _maxValue), Random.Next(_minValue, _maxValue));
+            return deviation / solutions.Count;
         }
     }
 }

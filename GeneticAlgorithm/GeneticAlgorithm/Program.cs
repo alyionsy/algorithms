@@ -5,13 +5,13 @@ namespace GeneticAlgorithm
 {
     class Program
     {
-        private static EquationSolver.Equation _equation = Equation.EquationB;
+        private static EquationSolver.Equation _equation = Equation.EquationExtra;
         
-        private const int PopulationSize = 4000;
+        private const int PopulationSize = 3000;
         private const int MinValue = -200;
         private const int MaxValue = 200;
         private const int TournamentGroupAmount = 3;
-        private const int ChildrenAmount = 5000;
+        private const int ChildrenAmount = 4000;
         private const int MutantsAmount = 1000;
         private const double MutationPossibility = 0.4;
         private const double SubstitutionPossibility = 0.3;

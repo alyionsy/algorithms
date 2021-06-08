@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 
 namespace GeneticAlgorithm
 {
@@ -19,7 +19,7 @@ namespace GeneticAlgorithm
         public static int EquationExtra(ChromosomeVector chromosome)
         {
             var (u, w, x, y, z) = (chromosome.U, chromosome.W, chromosome.X, chromosome.Y, chromosome.Z);
-            return Math.Abs(50 + x + y + (u * w * x * y) + ((u * u) * w * x * y) + (u * x * y * (z * z)));
+            return Math.Abs(-22 + ((y * y) + ( w * w * z) + (w * y * z) + (u * (z * z) + (u * w * (x * x) * (y * y) * (z * z)))));
         }
     }
 }
